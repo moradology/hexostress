@@ -54,3 +54,6 @@ docs/_build/
 
 # Configuration
 config.py
+
+# api cache
+.api_stash*
