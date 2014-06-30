@@ -15,7 +15,7 @@ def main(rec_list, config):
 
     # Credentials are entered here, directly in the code, and a session
     # authentication token is created
-    username = config["usname"]
+    username = config["uname"]
     password = config["pass"]
     public_key = config["pubkey"]
     private_key = config["privkey"]
