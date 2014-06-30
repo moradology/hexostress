@@ -4,7 +4,9 @@ __author__ = 'antoine'
 import sys,HxApi2_0
 from os.path import expanduser
 import getpass
-def main(argv):
+from config import CONFIG
+
+def main(argv,config):
     '''
     To tests this script, either run it from here, of call "python exampleScript2.py" from the terminal.
 
@@ -17,16 +19,15 @@ def main(argv):
     Do not forget to enter your developper keys below
     '''
 
-    publicKey = "somelettersandnumbers"
-    privateKey = "somemorelettersandnumbers"
+    publicKey = config['pubkey']
+    privateKey = config['privkey']
 
 
     index=0
 
     while index<10:
-        print 'Please enter login information'
-        username = raw_input('Username : ')
-        password = getpass.getpass('Password : ')
+        username = config['uname']
+        password = config['pass']
         try:
             #Create login authentication token
             auth = HxApi2_0.SessionInfo(publicKey=publicKey,privateKey=privateKey,username=username,password=password,base_url='api')
@@ -82,4 +83,4 @@ def main(argv):
             index+=1
 
 if __name__ == "__main__":
-    main(sys.argv)
+    main(sys.argv, CONFIG)
