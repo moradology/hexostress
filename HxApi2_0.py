@@ -277,7 +277,7 @@ def saveTxt(data,dirname):
         os.makedirs(dirname)
     for k,v in data.items():
         filestring = ''
-        f = open(dirname + str(k) + '.txt', "w")
+        f = open(dirname + str(k) + '.csv', "w")
         if k == 'info':
             for kk, vv in v.items():
                 filestring += '%s : %s\n' % (str(kk),str(vv))
@@ -290,9 +290,9 @@ def saveTxt(data,dirname):
                 linelen = len(entry)
                 for i, entrySub in enumerate(entry):
                     if i == 0:
-                        filestring += (str(entrySub) + '\t')  # if timestamp is a float, convert to long integer
+                        filestring += (str(entrySub) + ',')  # if timestamp is a float, convert to long integer
                     elif i < linelen-1:
-                        filestring += (str(entrySub) + '\t')
+                        filestring += (str(entrySub) + ',')
                     else:
                         filestring += (str(entrySub) + '\n')
         f.write(filestring)
